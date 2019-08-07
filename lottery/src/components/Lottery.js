@@ -22,7 +22,8 @@ class Lottery extends Component {
             }
         }
 
-        // To sort numerically rather than on string value need to use compare function
+        // To sort numerically (rather than on string value) 
+        // need to pass a compare function to sort
         this.setState({ nums: newNums.sort((a, b) => a - b) });
     }
 
