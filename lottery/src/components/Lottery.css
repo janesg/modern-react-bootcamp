@@ -1,0 +1,23 @@
+.Lottery {
+    margin: 15px;
+    width: 600px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.Lottery-button {
+    width: 8em;
+    padding: 1em;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    font-size: 1em;
+    margin: 20px;
+}
+
+.Lottery-button:hover {
+    cursor: pointer;
+    background-color: slategrey;
+}

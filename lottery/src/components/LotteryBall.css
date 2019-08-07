@@ -1,0 +1,16 @@
+.LotteryBall {
+    display: inline-block;
+    text-align: center;
+    width: 3em;
+    /* Height + Padding-Top must equal 3em for circle
+        - play with proportions until text is vertically centered */
+    height: 2.3em;
+    padding-top: 0.7em;
+    margin: 5px;
+    border: 7px solid black;
+    border-radius: 50%;
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+}
