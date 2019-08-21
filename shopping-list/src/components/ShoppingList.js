@@ -28,9 +28,10 @@ class ShoppingList extends Component {
                 <h1>Shopping List :</h1>
                 <ul>
                 { 
-                    this.state.items.map(({name, qty, id}) =>
-                        <li key={ id }>{ name } : { qty }</li>
-                    ) 
+                    this.state.items.map(({name, qty, id}) => {
+                        const txt = `${ name } : ${ qty }`;
+                        return <li key={ id }>{ txt }</li>
+                    }) 
                 }
                 </ul>
                 <ShoppingListForm addItem={ this.addItem } />
