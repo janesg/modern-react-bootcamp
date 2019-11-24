@@ -8,7 +8,8 @@
     margin-bottom: -4px;        /* Reduce adjoining borders */
 }
 
-.copy-button {
+.copy-button, 
+.back-button {
     width: 100px;
     height: 30px;
     position: absolute;
@@ -25,12 +26,17 @@
     line-height: 30px;
     color: white;
     text-transform: uppercase;
+    text-decoration: none;
+}
+
+.copy-button {
     opacity: 0;                 /* Initially hidden...exposed by hover */
 }
 
 .Swatch:hover .copy-button {    /* Change button opacity when hover over swatch */
     opacity: 1;
     transition: 0.5s;
+    cursor: inherit;
 }
 
 .content {

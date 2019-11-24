@@ -1,6 +1,14 @@
-.Palette {
+.SingleColourPalette {
     height: 100vh;
     overflow: hidden;       /* Prevents scrollbars from momentarily appearing */
+}
+
+.SingleColourPalette .Swatch {
+    height: 50%;
+}
+
+.Swatch.GoBack {
+    background-color: black;
 }
 
 .Palette-colours {

@@ -2,6 +2,7 @@ import React from 'react';
 // import { Component } from 'react';
 import { withStyles } from '@material-ui/styles';
 
+// Example of CSS in Javascript (JSS)
 const styles = {
     // CSS properties have to be in camel case
     root: {
