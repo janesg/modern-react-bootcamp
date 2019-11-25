@@ -1,9 +1,0 @@
-.Palette {
-    height: 100vh;
-    overflow: hidden;       /* Prevents scrollbars from momentarily appearing */
-}
-
-.Palette-colours {
-    /* height: 90%; */
-    height: 89vh;           /* 100vh - NavBar (6vh) - Footer (5vh) */
-}

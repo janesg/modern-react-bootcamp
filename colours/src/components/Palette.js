@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import { withStyles } from '@material-ui/styles';
 
-import './Palette.css';
 import PaletteFooter from './PaletteFooter';
 import Swatch from './Swatch';
 import NavBar from './NavBar';
+
+const styles = {
+    Palette: {
+        height: "100vh",
+        overflow: "hidden"       /* Prevents scrollbars from momentarily appearing */
+    },
+    paletteColours: {
+        height: "89vh"           /* 100vh - NavBar (6vh) - Footer (5vh) */
+    }    
+}
 
 class Palette extends Component {
     state = {
@@ -22,22 +32,23 @@ class Palette extends Component {
     render() {
         const colours = this.props.palette.colors;
         const { id, paletteName, emoji } = this.props.palette;
+        const { classes } = this.props;
         const { level, format } = this.state;
         const swatches = colours[level].map(colour => (
             <Swatch key={ colour.id }
                     background={ colour[format] } 
                     name={ colour.name }
-                    showMore={ true }
+                    showFullPalette={ true }
                     moreUrl={`/palette/${ id }/${ colour.id }`} />
         ));
         
         return (
-            <div className="Palette">
+            <div className={ classes.Palette }>
                 <NavBar level={ level } 
                         changeLevel={ this.changeLevel }
                         changeFormat={ this.changeFormat }
                         showLevelSlider />
-                <div className="Palette-colours">
+                <div className={ classes.paletteColours }>
                     { swatches }
                 </div>
                 <PaletteFooter paletteName={ paletteName } emoji={ emoji } />
@@ -46,4 +57,4 @@ class Palette extends Component {
     }
 }
 
-export default Palette;
+export default withStyles(styles)(Palette);
