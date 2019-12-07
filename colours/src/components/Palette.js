@@ -5,15 +5,7 @@ import PaletteFooter from './PaletteFooter';
 import Swatch from './Swatch';
 import NavBar from './NavBar';
 
-const styles = {
-    Palette: {
-        height: "100vh",
-        overflow: "hidden"       /* Prevents scrollbars from momentarily appearing */
-    },
-    paletteColours: {
-        height: "89vh"           /* 100vh - NavBar (6vh) - Footer (5vh) */
-    }    
-}
+import styles from 'styles/PaletteStyles';
 
 class Palette extends Component {
     state = {
