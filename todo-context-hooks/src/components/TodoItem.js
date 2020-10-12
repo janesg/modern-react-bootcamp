@@ -9,11 +9,11 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 import useToggleState from "../hooks/useToggleState";
 import TodoEdit from "./TodoEdit";
-import { TodosContext } from "../contexts/todos.context";
+import { DispatchContext } from "../contexts/todos.context";
 
 const TodoItem = ({ id, task, completed }) => {
     const [editMode, toggleEditMode] = useToggleState();
-    const { removeTodo, toggleTodo } = useContext(TodosContext);
+    const dispatch = useContext(DispatchContext);
 
     return (
         <ListItem style={{height: "64px"}}>
@@ -21,13 +21,16 @@ const TodoItem = ({ id, task, completed }) => {
                 <TodoEdit id={id} taskToEdit={task} toggleEditMode={toggleEditMode} />
                 :
                 <>
-                    <Checkbox tabIndex={-1} checked={completed} onClick={() => toggleTodo(id)} />
+                    <Checkbox tabIndex={-1} checked={completed} 
+                              onClick={() => dispatch({ type: "TOGGLE", id })} />
                     <ListItemText style={{textDecoration: completed ? "line-through" : "none"}}>{task}</ListItemText>
                     <ListItemSecondaryAction>
-                        <IconButton aria-label="Edit" onClick={() => toggleEditMode()}>
+                        <IconButton aria-label="Edit" 
+                                    onClick={() => toggleEditMode()}>
                             <EditIcon />
                         </IconButton>
-                        <IconButton aria-label="Delete" onClick={() => removeTodo(id)}>
+                        <IconButton aria-label="Delete" 
+                                    onClick={() => dispatch({ type: "REMOVE", id })}>
                             <DeleteIcon />
                         </IconButton>
                     </ListItemSecondaryAction>
