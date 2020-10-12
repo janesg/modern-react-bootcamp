@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -40,4 +40,6 @@ const TodoItem = ({ id, task, completed }) => {
     )
 }
 
-export default TodoItem;
+// Use HO-component, memo, to prevent item's rerendering 
+// when passed exact same props as previously (memoization)
+export default memo(TodoItem);

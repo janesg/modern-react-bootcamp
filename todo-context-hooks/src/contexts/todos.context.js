@@ -1,5 +1,6 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext } from "react";
 import { reducer as todosReducer } from "../reducers/todos.reducer";
+import useLocalStorageReducer from "../hooks/useLocalStorageReducer";
 
 const defaultTodos = [];
  
@@ -10,7 +11,7 @@ export const TodosContext = createContext();
 export const DispatchContext = createContext();
 
 export const TodosProvider = ({ children }) => {
-    const [todos, dispatch] = useReducer(todosReducer, defaultTodos);
+    const {state: todos, dispatch} = useLocalStorageReducer("todos", defaultTodos, todosReducer);
 
     // To prevent unnecessary rerendering, don't pass a newly constructed 
     // 'value' object each time
